@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Click| Book Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Just Click</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="browsebooks.html">Browse Books</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Book Details Section -->
+    <section class="book-details">
+        <div class="book-info">
+            <img id="book-image" src="" alt="Book Cover">
+            <div class="details">
+                <h1 id="book-title"></h1>
+                <p id="book-author"></p>
+                <p id="book-description"></p>
+                <p id="book-pages"></p>
+                <p id="book-published"></p>
+                <a id="download-link" href="#" class="download-button">Download Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Just Click. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Fetch book details based on the ID in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookId = urlParams.get('id');
+
+        fetch(`http://localhost:8080/books/${bookId}`)
+            .then(response => response.json())
+            .then(book => {
+                document.getElementById('book-image').src = book.image;
+                document.getElementById('book-title').textContent = book.title;
+                document.getElementById('book-author').textContent = `By ${book.author}`;
+                document.getElementById('book-description').textContent = book.description;
+                document.getElementById('book-pages').textContent = `Pages: ${book.pages}`;
+                document.getElementById('book-published').textContent = `Published: ${book.publishedYear}`;
+                document.getElementById('download-link').href = book.downloadLink;
+            })
+            .catch(error => console.error('Error fetching book details:', error));
+    </script>
+</body>
+</html>

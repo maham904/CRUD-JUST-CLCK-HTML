@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage Users - Admin Panel for E-Book Library">
+    <title>Manage Users | E-Book Library</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="manageUsers.js"></script>
+
+</head>
+<body>
+    <!-- Admin Header -->
+    <header>
+        <div class="logo">Just Click - Admin</div>
+        <nav>
+            <ul>
+                <li><a href="admin.html">Dashboard</a></li>
+                <li><a href="addbook.html">Add New Book</a></li>
+                <li><a href="manageusers.html">Manage Users</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Manage Users Section -->
+    <section class="manage-users">
+        <h1>Manage Users</h1>
+
+        <!-- Users Table -->
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Users (This would be dynamically generated from the database) -->
+                <tr>
+                    <td>1</td>
+                    <td>john_doe</td>
+                    <td>john.doe@example.com</td>
+                    <td><span class="status active">Active</span></td>
+                    <td>
+                        <a href="edit-user.html?id=1" class="edit-btn">Edit</a>
+                        <a href="#" class="delete-btn" onclick="deleteUser(1)">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>jane_smith</td>
+                    <td>jane.smith@example.com</td>
+                    <td><span class="status inactive">Inactive</span></td>
+                    <td>
+                        <a href="edit-user.html?id=2" class="edit-btn">Edit</a>
+                        <a href="#" class="delete-btn" onclick="deleteUser(2)">Delete</a>
+                    </td>
+                </tr>
+                <!-- Add more users here -->
+            </tbody>
+        </table>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 E-Book Library. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript to handle user deletion -->
+    <script>
+        function deleteUser(userId) {
+            if (confirm('Are you sure you want to delete this user?')) {
+                // Make an API call to delete the user (this is just a placeholder)
+                console.log('User with ID ' + userId + ' deleted.');
+                // Optionally, you could refresh the page or remove the user from the table
+                // For example: document.getElementById(userId).remove();
+            }
+        }
+    </script>
+</body>
+</html>

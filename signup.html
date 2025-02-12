@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up for an E-Book Library account to start exploring and downloading books.">
+    <title>E-Book Library | Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="signup.js"></script>
+
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="E-Book Library Logo">
+            <span>E-Book Library</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html" class="active">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Signup Form Section -->
+    <section class="auth-form">
+        <h2>Create a New Account</h2>
+        <form id="signup-form" action="/signup" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <small class="error-message" id="name-error"></small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <small class="error-message" id="email-error"></small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+                <small class="error-message" id="password-error"></small>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+                <small class="error-message" id="confirm-password-error"></small>
+            </div>
+            <button type="submit" class="submit-button">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 E-Book Library. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get form values
+    let name = document.getElementById('name').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let password = document.getElementById('password').value;
+    let confirmPassword = document.getElementById('confirm-password').value;
+
+    // Reset previous error messages
+    document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+
+    let isValid = true;
+
+    // Name validation
+    if (name.length < 3) {
+        document.getElementById('name-error').textContent = "Name must be at least 3 characters long";
+        document.getElementById('name-error').style.display = 'block';
+        isValid = false;
+    }
+
+    // Email validation (simple check)
+    if (!email.includes('@') || !email.includes('.')) {
+        document.getElementById('email-error').textContent = "Enter a valid email";
+        document.getElementById('email-error').style.display = 'block';
+        isValid = false;
+    }
+
+    // Password validation
+    if (password.length < 6) {
+        document.getElementById('password-error').textContent = "Password must be at least 6 characters";
+        document.getElementById('password-error').style.display = 'block';
+        isValid = false;
+    }
+
+    // Confirm Password validation
+    if (password !== confirmPassword) {
+        document.getElementById('confirm-password-error').textContent = "Passwords do not match";
+        document.getElementById('confirm-password-error').style.display = 'block';
+        isValid = false;
+    }
+
+    // If all validations pass, proceed with signup
+    if (isValid) {
+        alert('Signup successful! Redirecting to login page...');
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 2000);
+    }
+});
+
+    </script>
+
+</body>
+</html>

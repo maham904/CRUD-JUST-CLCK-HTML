@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Add a new book to the Just Click Library">
+    <title>Add New Book | Just Click</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Admin Header -->
+    <header>
+        <div class="logo">Just Click - Admin</div>
+        <nav>
+            <ul>
+                <li><a href="admin.html">Dashboard</a></li>
+                <li><a href="addbook.html">Add New Book</a></li>
+                <li><a href="manageusers.html">Manage Users</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Add Book Form -->
+    <section class="add-book">
+        <h1>Add New Book</h1>
+        <form action="/admin/addbook" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Book Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="cover">Book Cover Image</label>
+                <input type="file" id="cover" name="cover" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">All</option>
+                        <option value="self-help">Self-Help</option>
+                        <option value="Science">Science</option>
+                        <option value="Maths">Maths</option>
+                        <option value="Programming">Programming</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="book-file">Book File (PDF)</label>
+                    <input type="file" id="book-file" name="book-file" accept=".pdf" required>
+                </div>
+                <button type="submit">Add Book</button>
+            </div>
+        </form>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Just Click. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
